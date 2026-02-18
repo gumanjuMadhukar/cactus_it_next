@@ -7,7 +7,7 @@ export const SITE = {
   description:
     'Cactus IT Solution provides end-to-end digital services: web & mobile apps, data analytics, digital marketing, and IT consulting.',
   domain: 'https://cactusitsol.com.np', // TODO: replace after you deploy
-  email: 'hello@cactusitsolution.com',
+  email: 'info@cactusitsolution.com',
   phone: '+977 9840786886',
   location: 'Kathmandu, Nepal',
 };
