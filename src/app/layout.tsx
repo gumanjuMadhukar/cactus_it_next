@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Inter, Plus_Jakarta_Sans, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/site/Navbar';
@@ -20,10 +21,10 @@ const jakarta = Plus_Jakarta_Sans({
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'], // or 'variable' if you want full range
+  weight: ['400', '500', '600', '700', '800', '900'],
   style: ['normal', 'italic'],
   display: 'swap',
-  variable: '--font-serif',         // elegant serif for quotes, hero titles
+  variable: '--font-serif',
 });
 
 export const metadata: Metadata = {
@@ -56,21 +57,30 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jakarta.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${jakarta.variable} ${playfair.variable}`}
+    >
       <body className="font-sans antialiased">
         <Navbar />
         <main id="main">{children}</main>
         <Footer />
         <OrganizationJsonLd />
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-EJEZ72460J"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-EJEZ72460J');
+          `}
+        </Script>
       </body>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJEZ72460J"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-      
-        gtag('config', 'G-EJEZ72460J');
-      </script>
     </html>
   );
 }
