@@ -63,7 +63,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <OrganizationJsonLd />
       </body>
-      <!-- Google tag (gtag.js) -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJEZ72460J"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
