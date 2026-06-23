@@ -7,8 +7,8 @@ import { CTA } from '@/components/sections/CTA';
 export default function HomePage() {
   return (
     <>
-      <ServicesGrid compact />
       <Hero />
+      <ServicesGrid compact />
       <WhyChoose />
       <CaseStudiesGrid compact />
       <CTA />
